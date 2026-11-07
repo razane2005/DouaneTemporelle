@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">DouaneTemporelle</string>
+    <!-- قائمة أسباب السفر -->
+    <string-array name="motifs">
+        <item>Tourisme</item>
+        <item>Modification du passé</item>
+        <item>Fuite</item>
+    </string-array>
+
 </resources>
