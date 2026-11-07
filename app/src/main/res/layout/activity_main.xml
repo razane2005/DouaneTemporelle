@@ -1,19 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<!-- 1) ScrollView: للسماح بالتمرير إذا كانت الشاشة صغيرة -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- 2) LinearLayout عمودي (orientation=vertical) كي تظهر العناصر فوق بعضها -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:padding="24dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- 3) عنوان الصفحة -->
+        <TextView
+            android:id="@+id/tv_titre_nj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/douane_temporelle"
+            android:textColor="#3E2723"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_sous_titre_nj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:text="@string/formulaire_d_enregistrement_du_voyageur"
+            android:textColor="#6D4C41"
+            android:textSize="16sp" />
+
+        <!-- 4) حقل اسم المسافر -->
+        <TextView
+            android:id="@+id/tv_label_nom_nj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nom_du_voyageur"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_nom_nj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/ex_marty_mcfly"
+            android:inputType="textPersonName" />
+
+        <!-- 5) حقل سنة الولادة (أرقام فقط) -->
+        <TextView
+            android:id="@+id/tv_label_naissance_nj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ann_e_de_naissance"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_naissance_nj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/ex_1990"
+            android:inputType="number"
+            android:maxLength="4" />
+
+        <!-- 6) حقل سنة الوجهة (أرقام فقط) -->
+        <TextView
+            android:id="@+id/tv_label_destination_nj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ann_e_de_destination"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_destination_nj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/ex_2050"
+            android:inputType="number"
+            android:maxLength="4" />
+
+        <!-- 7) قائمة منسدلة (Spinner) لسبب السفر -->
+        <TextView
+            android:id="@+id/tv_label_motif_nj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/motif_du_voyage"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/sp_motif_nj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:entries="@array/motifs_voyage" />
+
+        <!-- 8) زر الفحص: يطلق النشاط 2 -->
+        <Button
+            android:id="@+id/btn_inspecter_nj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/inspecter_le_profil" />
+
+    </LinearLayout>
+</ScrollView>
