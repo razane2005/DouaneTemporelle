@@ -95,7 +95,7 @@
             android:textStyle="bold" />
 
         <Spinner
-            android:id="@+id/spinner_motif_rs"
+            android:id="@+id/motif_rs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
