@@ -17,7 +17,7 @@
 
         <!-- 3) عنوان الصفحة -->
         <TextView
-            android:id="@+id/tv_titre_nj"
+            android:id="@+id/titre_rs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -27,7 +27,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_sous_titre_nj"
+            android:id="@+id/sous_titre_rs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
@@ -38,14 +38,14 @@
 
         <!-- 4) حقل اسم المسافر -->
         <TextView
-            android:id="@+id/tv_label_nom_nj"
+            android:id="@+id/label_nom_rs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nom_du_voyageur"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/et_nom_nj"
+            android:id="@+id/nom_rs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -54,14 +54,14 @@
 
         <!-- 5) حقل سنة الولادة (أرقام فقط) -->
         <TextView
-            android:id="@+id/tv_label_naissance_nj"
+            android:id="@+id/label_naissance_rs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ann_e_de_naissance"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/et_naissance_nj"
+            android:id="@+id/naissance_rs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -71,14 +71,14 @@
 
         <!-- 6) حقل سنة الوجهة (أرقام فقط) -->
         <TextView
-            android:id="@+id/tv_label_destination_nj"
+            android:id="@+id/label_destination_rs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ann_e_de_destination"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/et_destination_nj"
+            android:id="@+id/année_destination_nj"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -88,14 +88,14 @@
 
         <!-- 7) قائمة منسدلة (Spinner) لسبب السفر -->
         <TextView
-            android:id="@+id/tv_label_motif_nj"
+            android:id="@+id/label_motif_rs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/motif_du_voyage"
             android:textStyle="bold" />
 
         <Spinner
-            android:id="@+id/sp_motif_nj"
+            android:id="@+id/motif_rs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
@@ -103,7 +103,7 @@
 
         <!-- 8) زر الفحص: يطلق النشاط 2 -->
         <Button
-            android:id="@+id/btn_inspecter_nj"
+            android:id="@+id/btn_inspecter_rs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/inspecter_le_profil" />
