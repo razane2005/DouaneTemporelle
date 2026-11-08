@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- LinearLayout أفقي: العناصر بجانب بعضها (الشرط 1) -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="#F5E6C8">
+
+    <!-- صورة المسافر على اليسار، وزنها 0.3 -->
+    <ImageView
+        android:id="@+id/iv_photo_xx"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.3"
+        android:src="@mipmap/ic_launcher" />
+
+    <!-- RelativeLayout على اليمين للنصوص، وزنه 0.7 -->
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.7">
+
+        <!-- العنوان -->
+        <TextView
+            android:id="@+id/tv_titre_xx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PASSEPORT TEMPOREL" />
+
+        <!-- اسم المسافر: تحت العنوان -->
+        <TextView
+            android:id="@+id/tv_nom_xx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_titre_xx"
+            android:text="Nom : " />
+
+        <!-- العمر الزمني: تحت الاسم -->
+        <TextView
+            android:id="@+id/tv_age_xx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_nom_xx"
+            android:text="Âge temporel : " />
+
+        <!-- سبب السفر: تحت العمر -->
+        <TextView
+            android:id="@+id/tv_motif_xx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_age_xx"
+            android:text="Motif : " />
+
+        <!-- زر الرفض: في أسفل الشاشة -->
+        <Button
+            android:id="@+id/btn_refuser_xx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="Refuser (Risque de paradoxe)" />
+
+        <!-- زر الموافقة: فوق زر الرفض -->
+        <Button
+            android:id="@+id/btn_approuver_xx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/btn_refuser_xx"
+            android:text="Approuver le saut temporel" />
+
+    </RelativeLayout>
+</LinearLayout>
