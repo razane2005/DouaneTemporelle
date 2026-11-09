@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".resultactivity"
+            android:name=".ResultActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
