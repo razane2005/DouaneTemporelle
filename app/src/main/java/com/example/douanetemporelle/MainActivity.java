@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        // Vérification : l'année de destination maa yelzemch tkoun vide
+        // Vérification : el l'année de destination maa yelzemch tkoun vide
         if (destinationStr.isEmpty()) {
             etDestinationRs.setError("Veuillez saisir l'année de destination");
             return;
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         int anneeNaissance = Integer.parseInt(naissanceStr);
         int anneeDestination = Integer.parseInt(destinationStr);
 
-        // Vérification: ma tnajemch tseefer fel l'année elli 9bal el date de naissance (ya3nii el L'année de destination leezem tkoun akbeer men l'année de naissance)
+        // Vérification: ma tnajemch tseefer fel l'année elli 9bal el date de naissance (ya3nii L'année de destination leezem tkoun akbeer men l'année de naissance)
         if (anneeDestination < anneeNaissance) {
             Toast.makeText(this,
                     "L'année de destination doit être supérieure à l'année de naissance",
