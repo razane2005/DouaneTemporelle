@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 1) ScrollView: للسماح بالتمرير إذا كانت الشاشة صغيرة -->
+<!-- 1) ScrollView: bech el ecran ykoun fih defilement ki ykoun sghir -->
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -8,14 +9,14 @@
     android:fillViewport="true"
     tools:context=".MainActivity">
 
-    <!-- 2) LinearLayout عمودي (orientation=vertical) كي تظهر العناصر فوق بعضها -->
+    <!-- 2) LinearLayout vertical (orientation=vertical) bech el 3anaser yetrakbou fou9 ba3dhom -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="24dp">
 
-        <!-- 3) عنوان الصفحة -->
+        <!-- 3) 3onwen el safha -->
         <TextView
             android:id="@+id/titre_rs"
             android:layout_width="match_parent"
@@ -36,7 +37,7 @@
             android:textColor="#6D4C41"
             android:textSize="16sp" />
 
-        <!-- 4) حقل اسم المسافر -->
+        <!-- 4) champ esm el mosafer -->
         <TextView
             android:id="@+id/label_nom_rs"
             android:layout_width="wrap_content"
@@ -52,7 +53,7 @@
             android:hint="@string/ex_marty_mcfly"
             android:inputType="textPersonName" />
 
-        <!-- 5) حقل سنة الولادة (أرقام فقط) -->
+        <!-- 5) champ sanat el wilada (ar9am bark) -->
         <TextView
             android:id="@+id/label_naissance_rs"
             android:layout_width="wrap_content"
@@ -69,7 +70,7 @@
             android:inputType="number"
             android:maxLength="4" />
 
-        <!-- 6) حقل سنة الوجهة (أرقام فقط) -->
+        <!-- 6) champ sanat el wijha (ar9am bark) -->
         <TextView
             android:id="@+id/label_destination_rs"
             android:layout_width="wrap_content"
@@ -86,7 +87,7 @@
             android:inputType="number"
             android:maxLength="4" />
 
-        <!-- 7) قائمة منسدلة (Spinner) لسبب السفر -->
+        <!-- 7) liste mta3 el motif (Spinner) mta3 sabab el safra -->
         <TextView
             android:id="@+id/label_motif_rs"
             android:layout_width="wrap_content"
@@ -101,7 +102,7 @@
             android:layout_marginBottom="32dp"
             android:entries="@array/motifs_voyage" />
 
-        <!-- 8) زر الفحص: يطلق النشاط 2 -->
+        <!-- 8) bouton el test: yet7el el Activity 2 -->
         <Button
             android:id="@+id/btn_inspecter_rs"
             android:layout_width="match_parent"
