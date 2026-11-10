@@ -113,7 +113,7 @@ public class VerificationActivity extends AppCompatActivity {
         // Intent explicite lel ResultActivity
         Intent intent = new Intent(VerificationActivity.this, ResultActivity.class);
 
-        // Nab3thou el décision (boolean) w esm el voyageur b clés ma3mouliin bel fonction statique
+        // Nab3thou el décision (boolean) w el nom du voyageur b clés ma3mouliin bel fonction statique
         intent.putExtra(Cles.cle(Cles.MATRICULE, Cles.VERDICT), approuve);
         intent.putExtra(Cles.cle(Cles.MATRICULE, Cles.NOM), nom);
 
