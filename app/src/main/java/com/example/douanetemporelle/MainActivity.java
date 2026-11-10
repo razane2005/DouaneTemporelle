@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         // Kol variable nareebtouh bel élément elli yetwafa9 m3ah fil fichier XML bil ID
         etNomRs = findViewById(R.id.nom_rs);
         etNaissanceRs = findViewById(R.id.naissance_rs);
-        etDestinationRs = findViewById(R.id.année_destination_nj);
+        etDestinationRs = findViewById(R.id.destination_rs);
         spMotifRs = findViewById(R.id.motif_rs);
         btnInspecterRs = findViewById(R.id.btn_inspecter_rs);
 
