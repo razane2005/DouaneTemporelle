@@ -2,17 +2,18 @@ package com.example.douanetemporelle;
 
 public class Cles {
 
-    // رقم البطاقة: آخر 4 أرقام من بطاقة الطالب (غيّره برقمك)
+    // Akher 4 ar9am men carte étudiant (baddelhom b matricule mte3ek)
     public static final String MATRICULE = "5678";
 
-    // الأسماء الأساسية للمفاتيح (بدون البادئة)
+    // Les asmé el asasiya mta3 les clés (bla préfixe)
     public static final String NOM = "NOM_VOYAGEUR";
     public static final String NAISSANCE = "ANNEE_NAISSANCE";
     public static final String DESTINATION = "ANNEE_DESTINATION";
     public static final String MOTIF = "MOTIF_VOYAGE";
     public static final String VERDICT = "VERDICT_FINAL";
 
-    // دالة ثابتة تبني المفتاح من رقم البطاقة (مثال: 1234_NOM_VOYAGEUR)
+    // Fonction statique tebni el clé b matricule
+        // Exemple: 1234_NOM_VOYAGEUR
     public static String cle(String matricule, String nom) {
         return matricule + "_" + nom;
     }
