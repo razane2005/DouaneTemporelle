@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         // 5) ربط كل متغير بالعنصر الموافق له في الـ XML عن طريق الـ id
         etNomRs = findViewById(R.id.nom_rs);
         etNaissanceRs = findViewById(R.id.naissance_rs);
-        etDestinationRs = findViewById(R.id.année_destination_nj);
+        etDestinationRs = findViewById(R.id.destination_rs);
         spMotifRs = findViewById(R.id.motif_rs);
         btnInspecterRs = findViewById(R.id.btn_inspecter_rs);
 
