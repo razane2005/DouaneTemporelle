@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Douane Temporelle</string>
 
-    <!-- 1) النصوص المستعملة في activity_main.xml -->
+    <!-- 1) el nosous el mosta3mla fi activity_main.xml -->
     <string name="douane_temporelle">Douane Temporelle</string>
     <string name="formulaire_d_enregistrement_du_voyageur">Formulaire d\'enregistrement du voyageur</string>
     <string name="nom_du_voyageur">Nom du voyageur</string>
@@ -13,8 +13,8 @@
     <string name="motif_du_voyage">Motif du voyage</string>
     <string name="inspecter_le_profil">Inspecter le profil</string>
 
-    <!-- 2) قائمة أسباب السفر: يستعملها الـ Spinner عبر android:entries -->
-    <!-- ملاحظة: النص "Modification du passé" يجب أن يبقى كما هو لأن النشاط 2 يقارنه -->
+    <!-- 2) Liste mta3 les motifs de voyage, nestaamlouha fel Spinner -->
+    <!-- Remarque : "Modification du passé" lezem teb9a kif ma hiya khater VerificationActivity taamel comparaison m3aha -->
     <string-array name="motifs_voyage">
         <item>Tourisme</item>
         <item>Modification du passé</item>
