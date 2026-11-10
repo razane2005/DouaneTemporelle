@@ -15,11 +15,11 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 /**
- * النشاط 1: استمارة تسجيل المسافر عبر الزمن
+ *Activité 1:El formulaire d'enregistrement mta3 el voyageur
  */
 public class MainActivity extends AppCompatActivity {
 
-    // 1) تعريف عناصر الواجهة كمتغيرات (حقول الصنف)
+    // Ta3rif les éléments mta3 el l'interface comme des variables (champs mta3 el classe)
     private EditText etNomRs;
     private EditText etNaissanceRs;
     private EditText etDestinationRs;
@@ -30,27 +30,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // 2) تفعيل العرض بملء الشاشة (تحت أشرطة النظام)
+        // Na3mlou el affichage 3al écran el kol (ta7t el barres mta3 el système)
         WindowCompat.enableEdgeToEdge(getWindow());
 
-        // 3) ربط النشاط بملف التصميم activity_main.xml
+        // Na3mlou lien bin el activité w el layout bel activity_main.xml
         setContentView(R.layout.activity_main);
 
-        // 4) إضافة padding بحجم أشرطة النظام حتى لا يختفي المحتوى تحتها
+        // Nzidou padding 9add el barres mta3 el système bch el contenu ma yet3adech ta7thom
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        // 5) ربط كل متغير بالعنصر الموافق له في الـ XML عن طريق الـ id
+        // Kol variable nareebtouh bel élément elli yetwafa9 m3ah fil fichier XML bil ID
         etNomRs = findViewById(R.id.nom_rs);
         etNaissanceRs = findViewById(R.id.naissance_rs);
         etDestinationRs = findViewById(R.id.année_destination_nj);
         spMotifRs = findViewById(R.id.motif_rs);
         btnInspecterRs = findViewById(R.id.btn_inspecter_rs);
 
-        // 6) عند الضغط على الزر نستدعي دالة المعالجة
+        // Waqt elli nenzlou 3al bouton nestad3iiw el fonction mta3 el traitement
         btnInspecterRs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,41 +60,41 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * دالة تقرأ البيانات، تتحقق منها، ثم تفتح النشاط 2
+     *Fonction ta9ra les données, tet2akkeed menhom, w ba3d t7el el activité 2
      */
     private void inspecterProfil() {
 
-        // 1) قراءة النصوص من الحقول (trim لحذف الفراغات الزائدة)
+        // Na9rou les textes mel les champs (trim bech n7ayou el espaces elli zeydin)
         String nom = etNomRs.getText().toString().trim();
         String naissanceStr = etNaissanceRs.getText().toString().trim();
         String destinationStr = etDestinationRs.getText().toString().trim();
 
-        // 2) قراءة العنصر المختار في القائمة المنسدلة (سبب السفر)
+        // 9raya mta3 el choix elli ekhtarou el user fil spinner (raison mta3 el voyage)
         String motif = spMotifRs.getSelectedItem().toString();
 
-        // 3) التحقق: الاسم لا يجب أن يكون فارغا
+        // Vérification: el nom ma yelzeemch ykoun vide
         if (nom.isEmpty()) {
             etNomRs.setError("Veuillez saisir le nom");
-            return; // 3.1) نخرج من الدالة ولا نفتح النشاط 2
+            return; // Nokhorjou mel fonction (return) w ma n7eelouch el activité 2
         }
 
-        // 4) التحقق: سنة الولادة لا يجب أن تكون فارغة
+        // Vérification: date de naissance maa yelzemch tkoun vide
         if (naissanceStr.isEmpty()) {
             etNaissanceRs.setError("Veuillez saisir l'année de naissance");
             return;
         }
 
-        // 5) التحقق: سنة الوجهة لا يجب أن تكون فارغة
+        // Vérification : l'année de destination maa yelzemch tkoun vide
         if (destinationStr.isEmpty()) {
             etDestinationRs.setError("Veuillez saisir l'année de destination");
             return;
         }
 
-        // 6) تحويل النصوص إلى أعداد صحيحة (int)
+        // Conversion mta3 el textes en entiers
         int anneeNaissance = Integer.parseInt(naissanceStr);
         int anneeDestination = Integer.parseInt(destinationStr);
 
-        // 7) تحقق منطقي: لا يمكن أن يسافر الشخص إلى سنة قبل ولادته
+        // Vérification: ma tnajemch tseefer fel l'année elli 9bal el date de naissance (ya3nii el L'année de destination leezem tkoun akbeer men l'année de naissance)
         if (anneeDestination < anneeNaissance) {
             Toast.makeText(this,
                     "L'année de destination doit être supérieure à l'année de naissance",
@@ -102,22 +102,22 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        // 8) إنشاء Intent صريح (Explicit Intent):
-        //    المعامل الأول = النشاط الحالي (MainActivity.this)
-        //    المعامل الثاني = النشاط الهدف (VerificationActivity.class)
+        // Création mta3 Intent explicite:
+        //  1er parametre = el activité courante elli hia l'activité 1 (MainActivity.this)
+        //  2ème parametre = el activité 2 (VerificationActivity.class)
         Intent intent = new Intent(MainActivity.this, VerificationActivity.class);
 
-        // 9) نأخذ رقم البطاقة (آخر 4 أرقام) من الصنف Cles
+        // Nakhdhou el matricule (a5er 4 chiffres) mel classe Cles
         String matricule = Cles.MATRICULE;
 
-        // 10) إضافة البيانات بواسطة putExtra
-        //     المفاتيح تُبنى بالدالة الثابتة Cles.cle(matricule, nom) وليست مكتوبة يدويا
-        intent.putExtra(Cles.cle(matricule, Cles.NOM), nom);                      // 10.1) نص
-        intent.putExtra(Cles.cle(matricule, Cles.NAISSANCE), anneeNaissance);     // 10.2) عدد صحيح
-        intent.putExtra(Cles.cle(matricule, Cles.DESTINATION), anneeDestination); // 10.3) عدد صحيح
-        intent.putExtra(Cles.cle(matricule, Cles.MOTIF), motif);                  // 10.4) نص
+        // Nzidou les données b putExtra
+        // El clés yet3amlou bel fonction statique Cles.cle(matricule, nom) w mouch maktoubin bel yedd
+        intent.putExtra(Cles.cle(matricule, Cles.NOM), nom);                      // texte (String)
+        intent.putExtra(Cles.cle(matricule, Cles.NAISSANCE), anneeNaissance);     // entier (Int)
+        intent.putExtra(Cles.cle(matricule, Cles.DESTINATION), anneeDestination); // entier (Int)
+        intent.putExtra(Cles.cle(matricule, Cles.MOTIF), motif);                  // texte (String)
 
-        // 11) إطلاق النشاط 2
+        // Lancement mta3 el activité 2
         startActivity(intent);
     }
 }
