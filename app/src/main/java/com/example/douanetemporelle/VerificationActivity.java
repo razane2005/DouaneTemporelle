@@ -13,18 +13,18 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 /**
- * النشاط 2: ماسح المفارقة الزمنية (جواز السفر الزمني)
+ * Activity 2: Scanner mta3 el passport temporel
  */
 public class VerificationActivity extends AppCompatActivity {
 
-    // 1) تعريف عناصر الواجهة كمتغيرات (حقول الصنف)
+    // Ta3rif les éléments mta3 el l'interface m3aa les variables (champs mta3 el classe)
     private TextView tvNomRs;
     private TextView tvAgeRs;
     private TextView tvMotifRs;
     private Button btnApprouverRs;
     private Button btnRefuserRs;
 
-    // 2) البيانات المستلمة من النشاط 1
+    // Les données elli jeyin mel activité 1
     private String nom;
 
     @Override
@@ -38,40 +38,40 @@ public class VerificationActivity extends AppCompatActivity {
             return insets;
         });
 
-        // 3) ربط كل متغير بالعنصر الموافق له في الـ XML عن طريق الـ id
+        // Nareebtou kol variable bel élément mte3haa fil activity_verification.xml bil id
         tvNomRs = findViewById(R.id.tv_nom_rs);
         tvAgeRs = findViewById(R.id.tv_age_rs);
         tvMotifRs = findViewById(R.id.tv_motif_rs);
         btnApprouverRs = findViewById(R.id.btn_approuver_rs);
         btnRefuserRs = findViewById(R.id.btn_refuser_rs);
 
-        // 4) استلام الـ Intent الذي أطلق هذا النشاط
+        // Nesta9belou el Intent elli 7al el activité hedhi
         Intent intent = getIntent();
 
-        // 5) رقم البطاقة (آخر 4 أرقام) من الصنف Cles
+        // Neekhdhou el numéro mta3 el carte (ee5er 4 chiffres) mel classe Cles
         String matricule = Cles.MATRICULE;
 
-        // 6) قراءة البيانات بنفس المفاتيح المستعملة في النشاط 1
+        // Na9rou les données bnafs el clés elli esta3malnehom fil activité 1
         nom = intent.getStringExtra(Cles.cle(matricule, Cles.NOM));
         int anneeNaissance = intent.getIntExtra(Cles.cle(matricule, Cles.NAISSANCE), 0);
         int anneeDestination = intent.getIntExtra(Cles.cle(matricule, Cles.DESTINATION), 0);
         String motif = intent.getStringExtra(Cles.cle(matricule, Cles.MOTIF));
 
-        // 7) حساب العمر الزمني = سنة الوجهة - سنة الولادة
+        // N7asbou el âge temporel elli howa el l'année de destination - l'année de naissance
         int ageTemporel = anneeDestination - anneeNaissance;
 
-        // 8) عرض ملخص البيانات في واجهة الجواز
+        // Na3eemlou affichage lel résumé mta3 les données fil passeport
         tvNomRs.setText("Nom : " + nom);
         tvAgeRs.setText("Âge temporel : " + ageTemporel + " ans");
         tvMotifRs.setText("Motif : " + motif);
 
-        // 9) الشرط: إذا كان السبب "Modification du passé" والفرق عدد أولي
-        //    فإن زر "Approuver" يُعطَّل (disabled) بمجرد تحميل النشاط
+        // Condition: idhee ken el motif 5tarou el user "Modification du passé" w el far9 un nombre premier
+        //    na3emlou désactivation le bouton "Approuver" mel loul ki tet7aal l'activité
         if ("Modification du passé".equals(motif) && estPremier(ageTemporel)) {
             btnApprouverRs.setEnabled(false);
         }
 
-        // 10) زر الموافقة: القرار = true
+        // Bouton "Approuver": el décision = true
         btnApprouverRs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,7 +79,7 @@ public class VerificationActivity extends AppCompatActivity {
             }
         });
 
-        // 11) زر الرفض: القرار = false
+        // Bouton "Refuser": el décision = false
         btnRefuserRs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,35 +89,35 @@ public class VerificationActivity extends AppCompatActivity {
     }
 
     /**
-     * دالة تتحقق هل العدد أولي أم لا
+     * Fonction tet2akkeed ken el nombre premier walla lee
      */
     private boolean estPremier(int n) {
-        // 1) الأعداد الأصغر من 2 ليست أولية
+        // El nombre el as8ar mel 2 mouch premier
         if (n < 2) {
             return false;
         }
-        // 2) نختبر القواسم من 2 إلى الجذر التربيعي للعدد
+        // Nejarbou el diviseurs mel 2 lin el racine carré mta3 el nombre
         for (int i = 2; i * i <= n; i++) {
             if (n % i == 0) {
-                return false; // 2.1) وجدنا قاسما => ليس أوليا
+                return false; // L9ina diviseur donc el nombre mouch premier
             }
         }
-        // 3) لا يوجد أي قاسم => العدد أولي
+        // Ma l9iina 7atta diviseur => el nombre premier
         return true;
     }
 
     /**
-     * دالة تفتح النشاط 3 وترسل القرار النهائي (boolean) واسم المسافر
+     *Fonction t7el el activité 3 w tab3ath el décision finale (boolean) w esm el voyageur
      */
     private void lancerVerdict(boolean approuve) {
-        // 1) Intent صريح نحو ResultActivity
+        // Intent explicite lel ResultActivity
         Intent intent = new Intent(VerificationActivity.this, ResultActivity.class);
 
-        // 2) إرسال القرار (boolean) واسم المسافر بمفاتيح مبنية بالدالة الثابتة
+        // Nab3thou el décision (boolean) w esm el voyageur b clés ma3mouliin bel fonction statique
         intent.putExtra(Cles.cle(Cles.MATRICULE, Cles.VERDICT), approuve);
         intent.putExtra(Cles.cle(Cles.MATRICULE, Cles.NOM), nom);
 
-        // 3) إطلاق النشاط 3
+        // Nlanciw el activité 3
         startActivity(intent);
     }
 }

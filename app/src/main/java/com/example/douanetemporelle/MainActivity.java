@@ -19,7 +19,7 @@ import androidx.core.view.WindowInsetsCompat;
  */
 public class MainActivity extends AppCompatActivity {
 
-    // Ta3rif les éléments mta3 el l'interface comme des variables (champs mta3 el classe)
+    // Ta3rif les éléments mta3 el l'interface m3aa les variables (champs mta3 el classe)
     private EditText etNomRs;
     private EditText etNaissanceRs;
     private EditText etDestinationRs;
