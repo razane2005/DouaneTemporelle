@@ -18,7 +18,7 @@ class ResultActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_resultactivity)
 
-        // نجيب العناصر من الـ layout
+        // njib el 3anaser ml layout
         val racine = findViewById<View>(R.id.main)
         val tvMessage = findViewById<TextView>(R.id.tv_message_nj)
         val btnNouveau = findViewById<Button>(R.id.btn_nouveau_nj)
@@ -29,11 +29,11 @@ class ResultActivity : AppCompatActivity() {
             insets
         }
 
-        // نستقبل الاسم والحكم بالدالة الثابتة متاع Cles
+        // nijb el 2sem w el critere mn l'activity bdalele2 mta3 cles
         val nom = intent.getStringExtra(Cles.cle(Cles.MATRICULE, Cles.NOM)) ?: ""
         val approuve = intent.getBooleanExtra(Cles.cle(Cles.MATRICULE, Cles.VERDICT), false)
 
-        // نبدّل الخلفية والرسالة حسب الحكم
+        // l'ecran ytbdel 7aseb el resultat
         if (approuve) {
             racine.setBackgroundColor(Color.parseColor("#4CAF50")) // أخضر
             tvMessage.text = "Bon voyage $nom"
@@ -42,7 +42,7 @@ class ResultActivity : AppCompatActivity() {
             tvMessage.text = "$nom est en état d'arrestation temporelle"
         }
 
-        // بوتون "مسافر جديد": نرجع للـ MainActivity ونسكّر اللي قبل
+        // ki l'utlisateur yclique ala bouton retour à MainActivity et fermeture de l'écran précédent
         btnNouveau.setOnClickListener {
             val retour = Intent(this, MainActivity::class.java)
             retour.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
