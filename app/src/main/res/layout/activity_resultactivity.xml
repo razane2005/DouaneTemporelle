@@ -7,6 +7,9 @@
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".ResultActivity">
+    <!-- El layout el asesi elli yjamma3 les elements verticalement -->
+
+    <!-- TextView bech yaffichi resultat mta3 el voyageur -->
 
     <TextView
         android:id="@+id/tv_message_nj"
@@ -16,6 +19,7 @@
         android:textStyle="bold"
         android:textColor="#FFFFFF"
         android:gravity="center" />
+    <!-- Bouton bech el utilisateur ynajjem yabda voyage jdida -->
 
     <Button
         android:id="@+id/btn_nouveau_nj"
